@@ -1,12 +1,9 @@
-import Header from './Header'
+import Navbar from "./Navbar";
+
 
 function App() {
-  return (
-    <div className="App">
-      <h1>Lost in Translation</h1>
-      <Header/>
-    </div>
-  );
+  return <Navbar />
+
 }
 
 export default App;
