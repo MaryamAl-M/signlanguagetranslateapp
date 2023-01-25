@@ -1,6 +1,51 @@
+import React, { useContext, useState } from "react";
+import { SignImage } from "../components/Utils/SignImage";
+import { Context } from "../context/userProvider";
+import imagesData from "../components/Utils/ImagesData";
+import { useEffect } from "react";
+
 const Translate = () => {
-    return (
-        <h1>Translate</h1>
-    )
-}
+  const { user, setUser } = useContext(Context);
+  const [searchInput, setSearchInput] = useState("");
+  const [filterData, setFilterData] = useState([]);
+  const copiedArr = [];
+
+  useEffect(() => {
+    const user = localStorage.getItem("user");
+    const parseUser = JSON.parse(user);
+    if (parseUser) {
+      setUser(parseUser);
+    }
+  }, []);
+  const handleChange = (e) => {
+    e.preventDefault();
+    setSearchInput(e.target.value);
+  };
+
+  const submitValue = () => {
+    searchInput.split("").map((input) => {
+      imagesData.map((item) => {
+        if (input === item.key) {
+          copiedArr.push(item);
+        }
+      });
+    });
+    setFilterData([...copiedArr]);
+  };
+  return (
+    <div>
+      <h1>{user && user.username}</h1>
+      <input
+        type="text"
+        placeholder="Search here"
+        onChange={handleChange}
+        value={searchInput}
+      />
+      {filterData.map((data) => {
+        return <SignImage src={data.src} />;
+      })}
+      <button onClick={submitValue}>Seach</button>
+    </div>
+  );
+};
 export default Translate;
