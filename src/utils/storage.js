@@ -1,6 +1,5 @@
 
 export const storageSave = (key, value) => {
-    console.log("test,",value)
     localStorage.setItem(key, JSON.stringify(value))
 }
 export const storageRead = key => {
@@ -9,4 +8,7 @@ export const storageRead = key => {
         return JSON.parse(data)
     }
     return null
+}
+export const storageDelete = key => {
+    localStorage.removeItem(key)
 }

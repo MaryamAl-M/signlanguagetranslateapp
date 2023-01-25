@@ -1,5 +1,7 @@
-import { createContext, useContext } from "react";
-import React, { useEffect, useState } from "react";
+import { createContext, useContext } from "react"
+import React, { useEffect, useState } from "react"
+import { STORAGE_KEY_USER } from "../const/storageKeys"
+import { storageRead } from "../utils/storage"
 
 // Context object is responsible of exposing the state
 const UserContext = createContext()
@@ -10,8 +12,8 @@ export const useUser = () => {
 
 //Provider is responsible of managing state
 const UserProvider = ({ children }) => {
-
-    const [ user, setUser ] = useState(null)
+    //magic strings/numbers
+    const [ user, setUser ] = useState( storageRead(STORAGE_KEY_USER))
 
     //state is an object
     const state = {
