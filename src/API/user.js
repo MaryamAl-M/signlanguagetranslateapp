@@ -8,7 +8,6 @@ const checkForUser = async (username) => {
     try {
         //fetching data from the API
         const response = await fetch(`${apiUrl}?username=${username}`)
-        console.log(apiUrl)
 
         if (!response.ok) {
             throw new Error('Could not complete request. ')
