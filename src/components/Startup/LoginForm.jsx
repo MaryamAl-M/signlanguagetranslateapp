@@ -3,6 +3,7 @@ import { useForm } from 'react-hook-form'
 import { loginUser } from '../../API/user'
 import { storageRead, storageSave } from '../../utils/storage';
 import { useNavigate } from 'react-router-dom';
+import { STORAGE_KEY_USER } from "../../const/storageKeys";
 import { useUser } from "../../context/UserContext";
 
 const usernameConfig = {
@@ -36,7 +37,7 @@ const LoginForm = () => {
             setApiError(error)
         }
         if (userResp !== null) {
-            storageSave('translation-user', userResp)
+            storageSave(STORAGE_KEY_USER, userResp)
             setUser(userResp)
         }
         setLoading(false);
