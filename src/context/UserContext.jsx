@@ -4,7 +4,7 @@ import { STORAGE_KEY_USER } from "../const/storageKeys"
 import { storageRead } from "../utils/storage"
 
 // Context object is responsible of exposing the state
-const UserContext = createContext()
+export const UserContext = createContext()
 
 export const useUser = () => {
     return useContext(UserContext) //this returns an object which is the user and setuser
