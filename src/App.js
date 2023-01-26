@@ -16,7 +16,7 @@ function App() {
 
 
   <div className="App">
-  <Navbar />
+
    <Routes>
     <Route path="/" element={ <Startup /> } />
     <Route path="/Translate" element={ <Translations /> } />
