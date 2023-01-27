@@ -52,7 +52,7 @@
 }
 
 .list-words p,
-.list-words .delete-btn, .logout-button button {
+.list-words .delete-btn, .logout-button button, .clearHistory-button button {
   font-family: var(--loveFont);
   font-size: 1.5em;
   border: none;
@@ -67,4 +67,12 @@
 .logout-button button {
     background-color: rgb(67, 67, 67);
     color: #fff;
+    height: 40px;
+    width: 100px;
+}
+.clearHistory-button button {
+  background-color: rgb(67, 67, 67);
+  color: #fff;
+  min-height: 50px;
+  min-width: 150px;
 }

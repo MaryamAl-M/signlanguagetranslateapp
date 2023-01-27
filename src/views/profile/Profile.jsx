@@ -26,6 +26,11 @@ const Profile = () => {
     setUser({ ...user, translations: [...removedItem] });
   };
 
+  const clearHistory = () => {
+    localStorage.clear();
+    setUser({ ...user, translations: [] });
+  }
+
   const logout = () => {
     localStorage.clear();
     setUser(null)
@@ -49,6 +54,10 @@ const Profile = () => {
               ))}
           </div>
         </div>
+        <div className="clearHistory-button">
+          <button onClick={clearHistory}>Clear History</button>
+        </div>
+        <br></br>
         <div className="logout-button">
           <button onClick={logout}>logout</button>
         </div>
