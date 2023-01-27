@@ -30,9 +30,9 @@ API for storing the users and their translations
 
 ## Note
 This is just a rough idea of component tree and how it can be implemented, you may 
-change it according to your design and requirement.
-You should also handle the error case, security, and performance of the application.
-You should also implement the API endpoint and store the translation data and user data.
+change it according to the design and requirement.
+The application should also handle the error case, security, and performance of the application.
+The application should also implement the API endpoint and store the translation data and user data.
 
 
 # Getting Started with Create React App
