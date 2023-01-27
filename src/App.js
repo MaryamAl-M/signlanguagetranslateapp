@@ -1,7 +1,8 @@
-import Navbar from "./Navbar";
+import  Navbar  from './components/Navbar/Navbar';
+
 import {
   BrowserRouter,
-  Routes,
+  Routes, 
   Route
 } from 'react-router-dom'
 import Startup from "./views/Startup";
@@ -12,9 +13,10 @@ function App() {
   return(
 
   <BrowserRouter>
-  <Navbar />
+
 
   <div className="App">
+  <Navbar />
    <Routes>
     <Route path="/" element={ <Startup /> } />
     <Route path="/Translate" element={ <Translations /> } />
