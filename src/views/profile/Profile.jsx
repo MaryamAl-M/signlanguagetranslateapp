@@ -39,11 +39,13 @@ const Profile = () => {
 
   return (
     <div className="view-profile-container">
+      <br></br>
       <div className="profile-inner-container">
         <div className="container">
           <div className="list-header">
             <h3>Last 10 translated word</h3>
           </div>
+
           <div className="list-container">
             {user &&
               user.translations.slice(0,10).map((word, key) => (
@@ -53,14 +55,19 @@ const Profile = () => {
                 </div>
               ))}
           </div>
-        </div>
-        <div className="clearHistory-button">
-          <button onClick={clearHistory}>Clear History</button>
-        </div>
-        <br></br>
-        <div className="logout-button">
-          <button onClick={logout}>logout</button>
-        </div>
+
+          
+
+              </div>
+              <br></br><br></br>
+              <div className="clearHistory-button">
+                <button onClick={clearHistory}>Clear History</button>
+              </div>
+              <br></br>
+              <div className="logout-button">
+                <button onClick={logout}>logout</button>
+              </div>
+              <br></br><br></br>
       </div>
     </div>
   );
