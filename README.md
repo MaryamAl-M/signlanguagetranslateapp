@@ -1,29 +1,34 @@
-#React Sign Language Translator
+# React Sign Language Translator
+
 This application is a simple sign language translator built using the React framework. The application allows users 
 to input text and translate it to American Sign Language. The application has the following features:
 
-#Login Page
+# Login Page
+
 The first thing a user sees is the Login page where they must enter their name. The name is saved to the Translation API 
 and checked if the user exists. If the user exists, they are redirected to the Translation page. If a user is already 
 logged in, they are automatically redirected to the Translation page. The session is managed using the browser's local storage.
 
-#Translation Page
+# Translation Page
+
 A user may only view this page if they are currently logged into the app. If no active login session exists in 
 the browser storage, the user is redirected back to the login page.
 The user types in the input box at the top of the page and clicks on the "translate" button to the right of the 
 input box to trigger the translation. Translations are stored using the API. The Sign language characters appear 
 in the "translated" box. The input is limited to 40 letters.
 
-#Profile Page
+# Profile Page
+
 The profile page displays the last 10 translations for the current user. The user can also clear their translations by clicking 
 the "clear" button. The Logout button clears all storage and returns to the start page.
 
-#Required Tools
+# Required Tools
+
 React framework
 React Router for navigating between pages
 API for storing the users and their translations
 
-#Note
+# Note
 This is just a rough idea of component tree and how it can be implemented, you may 
 change it according to your design and requirement.
 You should also handle the error case, security, and performance of the application.
