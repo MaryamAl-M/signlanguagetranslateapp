@@ -12,18 +12,19 @@ export const Header = () => {
       <div>
         {user && (
           <div className="profile-container">
-            <p>{user.username}</p>
+            <p id="username">{user.username}</p>
             <div className="user-image" onClick={() => setShow(!show)}>
               <div className={`dropdown-container ${show ? "show" : "hide"}`}>
-                <div>
+                <div type="text">
                   <NavLink
                     className={`link-item ${({ isActive }) => isActive ? "active" : undefined}`}
                     to="translate"
-                  >
+                  > 
                     Translate
                   </NavLink>
                 </div>
-                <div>
+                <br></br>
+                <div type="text">
                   <NavLink className={`link-item ${({ isActive }) => isActive ? "active" : undefined}`}
                    to="profile">
                     Profile

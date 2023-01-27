@@ -14,6 +14,7 @@ const Profile = () => {
     if (parseUser) {
       setUser(parseUser);
     }
+    
   }, []);
 
   useEffect(() => {
@@ -40,7 +41,7 @@ const Profile = () => {
           </div>
           <div className="list-container">
             {user &&
-              user.translations.map((word, key) => (
+              user.translations.slice(0,10).map((word, key) => (
                 <div className="list-words" key={key}>
                   <p>{word}</p>
                   <button className="delete-btn" onClick={() => deleteWord(key)}>delete</button>

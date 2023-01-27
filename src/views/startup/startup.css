@@ -1,7 +1,7 @@
 @import "../../Utils/global.css";
 .start-upp-container{
   height: 50vh;
-  background:var(--yellow) ;
+  background-color: rgb(241, 141, 189);
   display: flex;
   align-items: center;
   justify-content: space-around;

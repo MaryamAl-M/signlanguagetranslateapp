@@ -26,7 +26,14 @@ const Translate = () => {
 
   const handleChange = (e) => {
     e.preventDefault();
+    const pattern = /^[a-zA-Z]+$/;
+    if(!e.target.value.match(pattern)) {
+      alert("OBS: You can only submit letters")
+      return false;
+    }
     setSearchInput(e.target.value);
+    setSearchInput(e.target.value);
+ 
   };
 
   const submitValue = () => {
@@ -51,6 +58,7 @@ const Translate = () => {
           style={{ width: "50%", margin: "auto", padding: "5px" }}
         >
           <input
+        
             type="text"
             placeholder="Search here"
             onChange={handleChange}
