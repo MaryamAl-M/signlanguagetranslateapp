@@ -6,7 +6,6 @@ import { useEffect } from "react";
 import "./translate.css";
 import InputContainer from "../../Utils/input-container/InputContainer";
 import Card from "../../Utils/card/Card";
-import { BiCloudLightRain } from "react-icons/bi";
 const Translate = () => {
   const { user, setUser } = useContext(Context);
   const [searchInput, setSearchInput] = useState("");
@@ -27,65 +26,31 @@ const Translate = () => {
 
   const handleChange = (e) => {
     e.preventDefault();
+    const pattern = /^[a-zA-Z]+$/;
+    if(!e.target.value.match(pattern)) {
+      alert("OBS: You can only submit letters")
+      return false;
+    }
     setSearchInput(e.target.value);
+    setSearchInput(e.target.value);
+ 
   };
 
   const submitValue = () => {
-    if (checkValidity(searchInput)) {
-      searchInput
-        .toLowerCase()
-        .split("")
-        .forEach((input) => {
-          imagesData.forEach((item) => {
-            if (input === item.key) {
-              copiedArr.push(item);
-            }
-          });
+    searchInput
+      .toLowerCase()
+      .split("")
+      .forEach((input) => {
+        imagesData.forEach((item) => {
+          if (input === item.key) {
+            copiedArr.push(item);
+          }
         });
       });
     setUser({ ...user, translations: [...user.translations, searchInput] });
     setFilterData([...copiedArr]);
-   
-      setUser({ ...user, translations: [...user.translations, searchInput] });
-      setFilterData([...copiedArr]);
-      setSearchInput("");
-    }
+    
   };
-
-  const checkValidity = (words) => {
-    // hello one two
-    // array words
-    // check length
-    const wordsLength = words.split(" ")
-    if (wordsLength.length > 40) {
-      alert("You can not translate more than 40 words")
-      return false
-    } else if (containOnlyWhiteSpace(searchInput)) {
-      alert("Can not translate empty word")
-      return false
-    }
-    else if (containNumber(words)) {
-      alert("Your word can not contain number")
-      return false
-    } else if (containSpecialCharacters(words)) {
-      alert("Your word can not contain special character")
-      return false
-    }
-    return true
-  }
-
-  const containNumber = (string) => {
-    return /[0-9]/.test(string);
-  }
-
-  const containSpecialCharacters = (string) => {
-    return /[`!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?~]/.test(string)
-  }
-
-  const containOnlyWhiteSpace = (string) => {
-    return !string.replace(/\s/g, '').length
-  }
-
   return (
     <>
       <div className="upper-body">
@@ -94,7 +59,7 @@ const Translate = () => {
           style={{ width: "50%", margin: "auto", padding: "5px" }}
         >
           <input
-
+        
             type="text"
             placeholder="Search here"
             onChange={handleChange}
