@@ -49,7 +49,7 @@ const Translate = () => {
       });
     setUser({ ...user, translations: [...user.translations, searchInput] });
     setFilterData([...copiedArr]);
-    setSearchInput("");
+    
   };
   return (
     <>
