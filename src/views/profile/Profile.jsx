@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import { Context } from "../../context/userProvider";
+import { foundUser, fetchUser, updateTranslations } from "../../API/user";
 import { useEffect } from "react";
 import "./profile.css";
 
@@ -19,7 +20,10 @@ const Profile = () => {
 
   useEffect(() => {
     localStorage.setItem("user", JSON.stringify(user));
+    updateTranslations(user).then((response) => 
+    console.log(response))
   }, [user]);
+
 
   const deleteWord = (id) => {
     const removedItem = user.translations.filter((word, index) => index !== id);
@@ -29,17 +33,21 @@ const Profile = () => {
   const clearHistory = () => {
     localStorage.clear();
     setUser({ ...user, translations: [] });
-  }
+  };
 
   const logout = () => {
-    localStorage.clear();
-    setUser(null)
-    navigate("/");
+    fetchUser(user.username).then((users) => {
+      const found = foundUser(user.username, users);
+      if (found) {
+        localStorage.clear();
+          setUser(null);
+          navigate("/");
+      }
+    });
   };
 
   return (
     <div className="view-profile-container">
-      <br></br>
       <div className="profile-inner-container">
         <div className="container">
           <div className="list-header">
@@ -55,8 +63,6 @@ const Profile = () => {
                 </div>
               ))}
           </div>
-
-          
 
               </div>
               <br></br><br></br>
