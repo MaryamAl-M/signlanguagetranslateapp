@@ -55,9 +55,6 @@ const Profile = () => {
                 </div>
               ))}
           </div>
-
-          
-
               </div>
               <br></br><br></br>
               <div className="clearHistory-button">
