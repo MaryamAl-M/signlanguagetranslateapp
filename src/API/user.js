@@ -1,12 +1,11 @@
 export const fetchUser = (username) => {
-  console.log(process.env.REACT_APP_KEY);
   return fetch(
-    `${process.env.REACT_APP_URL}/translations?username=${username}`
+    `https://topaz-deciduous-piper.glitch.me/translations?username=${username}`
   ).then((response) => response.json());
 };
 
 export const createUser = (username) => {
-  return fetch(`${process.env.REACT_APP_URL}/translations`, {
+  return fetch(`https://topaz-deciduous-piper.glitch.me/translations`, {
     method: "POST",
     headers: {
       mode: "cors",
@@ -26,7 +25,7 @@ export const createUser = (username) => {
 };
 
 export const updateTranslations = (user) => {
-  return fetch(`${process.env.REACT_APP_URL}/translations/${user.id}`, {
+  return fetch(`https://topaz-deciduous-piper.glitch.me/translations/${user.id}`, {
     method: "PATCH", // NB: Set method to PATCH
     headers: {
       "X-API-Key": process.env.REACT_APP_KEY,
