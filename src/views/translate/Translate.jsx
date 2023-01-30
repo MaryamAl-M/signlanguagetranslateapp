@@ -90,7 +90,6 @@ const Translate = () => {
           style={{ width: "50%", margin: "auto", padding: "5px" }}
         >
           <input
-
             type="text"
             placeholder="Search here"
             onChange={handleChange}
