@@ -32,8 +32,6 @@ const Translate = () => {
       return false;
     }
     setSearchInput(e.target.value);
-    setSearchInput(e.target.value);
- 
   };
 
   const submitValue = () => {
