@@ -23,20 +23,19 @@ const Startup = () => {
   const handleSubmitedValue = (username) => {
     if (username) {
       fetchUser(username).then((users) => {
-        const user = foundUser(username, users)
+        const user = foundUser(username, users);
         if (user) {
           setUser(user);
           window.localStorage.setItem("user", JSON.stringify(user));
           return navigate("/translate");
-        } else { else {
+        } else {
           createUser(username).then((user) => {
             setUser(user);
             window.localStorage.setItem("user", JSON.stringify(user));
-           return return navigate("/translate");
+            return navigate("/translate");
           });
-      }
         }
-     });
+      });
     }
   };
 
