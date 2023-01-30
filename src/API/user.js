@@ -1,5 +1,4 @@
 export const fetchUser = (username) => {
-  console.log(process.env.REACT_APP_KEY);
   return fetch(
     `${process.env.REACT_APP_URL}/translations?username=${username}`
   ).then((response) => response.json());
@@ -10,7 +9,7 @@ export const createUser = (username) => {
     method: "POST",
     headers: {
       mode: "cors",
-      "X-API-Key": process.env.REACT_APP_KEY,
+      "X-API-Key": process.env.REACT_APP_API_KEY,
       "Content-Type": "application/json",
     },
     body: JSON.stringify({
@@ -29,7 +28,7 @@ export const updateTranslations = (user) => {
   return fetch(`${process.env.REACT_APP_URL}/translations/${user.id}`, {
     method: "PATCH", // NB: Set method to PATCH
     headers: {
-      "X-API-Key": process.env.REACT_APP_KEY,
+      "X-API-Key": process.env.REACT_APP_API_KEY,
       "Content-Type": "application/json",
     },
     body: JSON.stringify({

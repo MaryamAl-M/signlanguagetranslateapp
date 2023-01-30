@@ -18,25 +18,24 @@ const Startup = () => {
       setUser(parseUser);
       navigate("/translate");
     }
-
   }, []);
 
   const handleSubmitedValue = (username) => {
     if (username) {
       fetchUser(username).then((users) => {
-        console.log("test",users)
-        const user = foundUser(username, users);
+        const user = foundUser(username, users)
         if (user) {
           setUser(user);
           window.localStorage.setItem("user", JSON.stringify(user));
           return navigate("/translate");
-        }
+        } else {
         createUser(username).then((user) => {
           setUser(user);
-          localStorage.setItem("user", JSON.stringify(user));
-          navigate("/translate");
+          window.localStorage.setItem("user", JSON.stringify(user));
+          return navigate("/translate");
         });
-      });
+      }
+     });
     }
   };
 
