@@ -1,5 +1,5 @@
 import LoginForm from "../../components/loginform/LoginForm";
-import { fetchUser, createUser } from "../../API/user";
+import { fetchUser, foundUser, createUser } from "../../API/user";
 import { useNavigate } from "react-router-dom";
 import React, { useContext } from "react";
 import { Context } from "../../context/userProvider";
@@ -28,13 +28,14 @@ const Startup = () => {
           setUser(user);
           window.localStorage.setItem("user", JSON.stringify(user));
           return navigate("/translate");
-        } else {
-        createUser(username).then((user) => {
-          setUser(user);
-          window.localStorage.setItem("user", JSON.stringify(user));
-          return navigate("/translate");
-        });
+        } else { else {
+          createUser(username).then((user) => {
+            setUser(user);
+            window.localStorage.setItem("user", JSON.stringify(user));
+           return return navigate("/translate");
+          });
       }
+        }
      });
     }
   };
