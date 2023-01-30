@@ -31,8 +31,8 @@ const Startup = () => {
         } else {
           createUser(username).then((user) => {
             setUser(user);
-            localStorage.setItem("user", JSON.stringify(user));
-           return navigate("/translate");
+            window.localStorage.setItem("user", JSON.stringify(user));
+            return navigate("/translate");
           });
         }
       });
